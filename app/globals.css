@@ -3,19 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #f4d301;
+  --secondary: #171717;
+  --tertiary: #ff0000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .session-btn {
+    @apply bg-[--primary] text-black border border-black py-5;
   }
+  .yellow_container {
+    @apply w-full bg-yellow-400 min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
+  }
+  .heading {
+    @apply uppercase rounded-xl bg-black px-10 py-5  font-extrabold text-white md:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-full text-center my-5;
+  }
+  .sub-heading {
+    @apply font-medium text-xl text-gray-800 max-w-2xl text-center break-words;
 }
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .pattern{
+      background-image: linear-gradient(
+              to right,
+              transparent 49.5%,
+              rgba(105, 88, 88, 0.2) 60.5%,
+              rgba(63, 47, 47, 0.6) 50.5%,
+              transparent 50.5%
+      );
+      background-size: 5% 100%;
+      background-position: center;
+      background-repeat: repeat-x;
+    /* background-image: url("./../assets/grid.png"); */
+  }
 }
