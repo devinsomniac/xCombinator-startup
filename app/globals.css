@@ -21,6 +21,9 @@
   .sub-heading {
     @apply font-medium text-xl text-gray-800 max-w-2xl text-center break-words;
 }
+.search-form{
+  @apply flex gap-2 bg-white p-6 rounded-full border border-black border-b-8 w-[300px] md:w-[450px] lg:w-[450px] mt-5
+}
   .pattern{
       background-image: linear-gradient(
               to right,
