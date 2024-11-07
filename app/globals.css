@@ -28,6 +28,12 @@
 .startup-card {
   @apply bg-white w-[300px] md:w-[450px] lg:w-[450px] border-[4px] border-black border-b-8 border-r-8  py-6 px-5 rounded-[22px] hover:border-primary transition-all duration-500 hover:bg-yellow-300;
 }
+.tag {
+  @apply bg-red-500 px-6 py-3 font-bold rounded-sm uppercase relative tag-tri;
+}
+.tag-tri {
+  @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
+}
 
   .pattern{
       background-image: linear-gradient(
