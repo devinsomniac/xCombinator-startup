@@ -3,16 +3,18 @@ import avatar from './../assets/avatar.png'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { Eye } from 'lucide-react'
+import Link from 'next/link'
+interface Post  {
+    id:number,
+    user_name: string;
+    user_image: string;
+    start_title: string;
+    start_desc: string;
+    createData: string;
+    category: string;
+}
 
-const StartupCard = () => {
-    const post = {
-        user_name : "Inzamam",
-        user_image : "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png",
-        start_title:"Hello World",
-        start_desc : "We awant to create a startup ",
-        createData:"20/10/2000",
-        category:"Robot"
-    }
+const StartupCard = ({post} : {post : Post}) => {
   return (
     <div className='startup-card cursor-pointer'>
         <div className='flex justify-between mb-3'>
@@ -35,7 +37,11 @@ const StartupCard = () => {
         </div>
         <div className='flex justify-between items-center mt-3'>
             <p className='p-2 text-xl  bg-black text-white rounded-3xl'>{post.category}</p>
-            <Button className='p-2 text-xl  bg-black text-white rounded-3xl'>Details</Button>
+            <Button className='p-2 text-xl  bg-black text-white rounded-3xl'>
+                <Link href={`/startup/${post.id}`}>
+                Details
+                </Link>
+                </Button>
         </div>
     </div>
   )
