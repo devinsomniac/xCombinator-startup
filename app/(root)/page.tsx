@@ -13,9 +13,25 @@ const page = async({searchParams} : {searchParams : Promise<{query?:string}>}) =
       <SearchForm query={query}/>
       </div>
       </section>
-      <section className='p-8'>
-        {query ?  <p>Search Results for "{query}"</p> : <p>All Recommendations</p>}
+      <div className='p-5 font-bold text-3xl'>
+      {query ?  <p>Search Results for "{query}"</p> : <p>All Recommendations</p>}
+      </div>
+      
+      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
+        <div className='flex justify-center mb-5'>
         <StartupCard/>
+        </div>
+        <div className='flex justify-center  mb-5'>
+        <StartupCard/>
+        </div><div className='flex justify-center  mb-5'>
+        <StartupCard/>
+        </div><div className='flex justify-center  mb-5'>
+        <StartupCard/>
+        </div><div className='flex justify-center  mb-5'>
+        <StartupCard/>
+        </div><div className='flex justify-center  mb-5'>
+        <StartupCard/>
+        </div>
       </section>
     </>
   )
