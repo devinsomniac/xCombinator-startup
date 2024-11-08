@@ -34,6 +34,12 @@
 .tag-tri {
   @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
 }
+.create_section{
+  @apply py-4 flex flex-col px-10 md:mr-44 md:ml-44 pb-5
+}
+.create_section_label{
+  @apply font-semibold text-lg ml-3 mt-3
+}
 
   .pattern{
       background-image: linear-gradient(

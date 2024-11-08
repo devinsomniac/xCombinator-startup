@@ -18,9 +18,9 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
         {query ? <p>Search Results for "{query}"</p> : <p>All Recommendations</p>}
       </div>
 
-      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
+      <section className='p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6'>
         {posts?.map((post, index) => (
-          <div key={index} className='flex justify-center mb-5'>
+          <div key={index} className='flex justify-center mb-5 '>
             <StartupCard post={post} />
           </div>
         ))}
