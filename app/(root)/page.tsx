@@ -3,7 +3,9 @@ import SearchForm from '@/components/SearchForm'
 import StartupCard from '@/components/StartupCard'
 import posts from '@/posts'
 
+
 const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
+ 
   const query = (await searchParams).query
   return (
     <>
