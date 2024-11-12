@@ -1,7 +1,8 @@
 import React from 'react'
 import posts from '@/posts'
 import Image from 'next/image'
-const page = () => {
+const page = async({params} : {params : {id : string}}) => {
+  console.log(params.id)
   return (
     <div>
         <section className='yellow_container'>
