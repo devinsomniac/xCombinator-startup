@@ -10,7 +10,7 @@
 
 @layer utilities {
   .session-btn {
-    @apply bg-[--primary] text-black border border-black py-5;
+    @apply bg-[--primary] text-white border border-black py-5;
   }
   .yellow_container {
     @apply w-full bg-[#00684a] min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;

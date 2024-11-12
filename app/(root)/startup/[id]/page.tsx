@@ -2,7 +2,7 @@ import React from 'react'
 import posts from '@/posts'
 import Image from 'next/image'
 const page = async({params} : {params : {id : string}}) => {
-  console.log(params.id)
+ const {id} = params
   return (
     <div>
         <section className='yellow_container'>
