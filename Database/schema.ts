@@ -1,5 +1,6 @@
+
 import {
-  boolean,
+  serial,
   timestamp,
   pgTable,
   text,
@@ -48,4 +49,15 @@ export const sessions = pgTable("session", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   expires: timestamp("expires", { mode: "date" }).notNull(),
+})
+
+
+export const startups = pgTable('startup',{
+  id:serial('id').primaryKey(),
+  title : text('title').notNull(),
+  description : text('description').notNull(),
+  category : text('category').notNull(),
+  imageLink:text('imageLink'),
+  pitch:text('pitch').notNull(),
+  userId : text('userId').notNull().references(() => users.id)
 })
