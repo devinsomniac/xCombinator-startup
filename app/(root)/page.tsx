@@ -1,13 +1,36 @@
-import React from 'react'
-import SearchForm from '@/components/SearchForm'
-import StartupCard from '@/components/StartupCard'
-import posts from '@/posts'
-import { db } from '@/Database/db'
-import { startups } from '@/Database/schema'
+import React from 'react';
+import SearchForm from '@/components/SearchForm';
+import StartupCard from '@/components/StartupCard';
+import { db } from '@/Database/db';
+import { startups, users } from '@/Database/schema';
+import { eq } from 'drizzle-orm';
 
 const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
- 
-  const query = (await searchParams).query
+  interface Post  {
+    startupId:number,
+    title: string;
+    description: string;
+    category: string;
+    imageLink: string ; 
+    userName: string ; 
+    userImage: string;
+}
+  const PostFromDb = await db
+  .select({
+    startupId: startups.id,
+    title: startups.title,
+    description: startups.description,
+    category: startups.category,
+    imageLink: startups.imageLink,
+    userName: users.name,
+    userImage: users.image,
+  })
+  .from(startups)
+  .innerJoin(users, eq(startups.userId, users.id)) as Post[];
+
+
+  const query = (await searchParams).query;
+
   return (
     <>
       <section className='yellow_container'>
@@ -22,16 +45,14 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
       </div>
 
       <section className='p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6'>
-        {posts?.map((post, index) => (
+        {PostFromDb?.map((post, index) => (
           <div key={index} className='flex justify-center mb-5 '>
             <StartupCard post={post} />
           </div>
         ))}
-
-
       </section>
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;
