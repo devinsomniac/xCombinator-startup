@@ -1,10 +1,14 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
-import { db } from "./Database";
+// import { db } from "./Database";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { users, accounts } from "./Database/schema"; // Import the schema
 import { eq } from "drizzle-orm"; // Import eq for filtering
+import { drizzle } from 'drizzle-orm/neon-http';
+import { neon} from '@neondatabase/serverless';
+import * as schema from './Database/schema'
 
+const db = drizzle(neon(process.env.DATABASE_URL!),{schema});
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google],
   adapter: DrizzleAdapter(db, {

@@ -2,7 +2,8 @@ import React from 'react'
 import SearchForm from '@/components/SearchForm'
 import StartupCard from '@/components/StartupCard'
 import posts from '@/posts'
-
+import { db } from '@/Database/db'
+import { startups } from '@/Database/schema'
 
 const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
  
