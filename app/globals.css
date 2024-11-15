@@ -18,6 +18,9 @@
   .heading {
     @apply uppercase rounded-xl bg-black px-10 py-5  font-extrabold text-white md:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-full text-center my-5;
   }
+  .profile_heading {
+    @apply uppercase rounded-xl bg-[#9A6735] px-10 py-5  font-extrabold text-white md:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-full text-center my-5;
+  }
   .sub-heading {
     @apply font-medium text-xl text-white max-w-2xl text-center break-words;
 }
