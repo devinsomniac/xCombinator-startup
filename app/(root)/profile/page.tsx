@@ -23,7 +23,7 @@ const page = async () => {
         'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg';
     const userid = session?.user?.id;
 
-    // Define postbyUser with correct type
+    
     let postbyUser: Post[] = [];
 
     if (userid) {
@@ -32,7 +32,7 @@ const page = async () => {
             .from(startups)
             .where(eq(startups.userId, userid));
 
-        // Map database fields to Post interface
+        
         postbyUser = rawPosts.map((post) => ({
             startupId: post.id,
             title: post.title,

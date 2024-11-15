@@ -36,13 +36,13 @@ const page = () => {
     console.log(formData)
     setPending(true)
     try{
-      const newStartup = await db.insert(startups).values({
+      await db.insert(startups).values({
         ...formData,
         userId:session?.user?.id as string
       })
       router.push('/')
     }catch(err){
-      console.log("Error in submitting data")
+      console.log("Error in submitting data",err)
     }
   }
   return (

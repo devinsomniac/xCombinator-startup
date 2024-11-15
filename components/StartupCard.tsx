@@ -1,5 +1,4 @@
 import React from 'react'
-import avatar from './../assets/avatar.png'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { Eye } from 'lucide-react'
