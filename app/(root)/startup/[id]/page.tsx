@@ -4,12 +4,10 @@ import { db } from "@/Database/db";
 import { startups, users } from "@/Database/schema";
 import { eq } from "drizzle-orm";
 
-interface PageProps {
-  params: { id: string };
-}
 
-const Page = async ({ params }: PageProps) => {
-  const { id } = params; // No need for `await`
+
+const Page = async ({ searchParams }: { searchParams: Promise<{ id?: string }> }) => {
+  const id = (await searchParams).id as string
   console.log(id);
 
   const numericId = parseInt(id, 10);
