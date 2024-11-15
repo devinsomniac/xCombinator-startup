@@ -1,16 +1,16 @@
-import React from 'react'
-import Image from 'next/image'
-import { db } from '@/Database/db'
-import { startups, users } from '@/Database/schema'
-import { eq } from 'drizzle-orm'
+import React from "react";
+import Image from "next/image";
+import { db } from "@/Database/db";
+import { startups, users } from "@/Database/schema";
+import { eq } from "drizzle-orm";
 
 interface PageProps {
-  params: { id: string }
+  params: { id: string };
 }
 
 const Page = async ({ params }: PageProps) => {
-  const { id } = params; // No need for `await` here
-  console.log(id)
+  const { id } = params; // No need for `await`
+  console.log(id);
 
   const numericId = parseInt(id, 10);
   const postDetails = await db
