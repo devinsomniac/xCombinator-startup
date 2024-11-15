@@ -2,10 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import { auth, signIn, signOut } from '@/auth'
 import { Button } from './ui/button'
+import Image from 'next/image'
+import { IoIosCreate } from "react-icons/io";
+
 
 const Navbar = async () => {
     const session = await auth()
     console.log(session)
+    const userImage = session?.user?.image || "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
     return (
         <header className='p-3'>
             <nav className='flex justify-between items-center'>
@@ -18,10 +22,11 @@ const Navbar = async () => {
                         <>
 
                             <Link href={"/startup/create"}>
-                                Create
+                            <IoIosCreate className='text-3xl border border-green-700' />
                             </Link>
                             <Link href={"/profile"}>
-                            {session?.user?.name}
+                            {/* {session?.user?.name} */}
+                            <Image src={userImage} alt='user Image' width={40} height={40} className='rounded-full border border-black'/>
                             </Link>
                             
                             
