@@ -20,7 +20,10 @@ const Navbar = async () => {
                             <Link href={"/startup/create"}>
                                 Create
                             </Link>
+                            <Link href={"/profile"}>
                             {session?.user?.name}
+                            </Link>
+                            
                             
                             <form
                                 action={async () => {

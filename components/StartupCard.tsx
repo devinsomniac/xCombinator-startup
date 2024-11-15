@@ -28,7 +28,7 @@ const StartupCard = ({post} : {post : Post}) => {
             <h2 className='font-semibold text-xl'>{post.userName}</h2>
             <Image src={post.userImage} height={45} width={45} alt='avatar' className='rounded-full'/>
         </div>
-        <h3 className='font-semibold text-3xl'>{post.title}</h3>
+        <h3 className='line-clamp-1 font-semibold text-3xl'>{post.title}</h3>
         <div>
             <p className='line-clamp-2'>{post.description}</p>
         </div>

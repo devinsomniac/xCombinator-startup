@@ -30,7 +30,14 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
 
 
   const query = (await searchParams).query;
-
+  const filteredPosts = query
+  ? PostFromDb.filter((post) =>
+    //Have to add Name of Author
+      post.title.toLowerCase().includes(query.toLowerCase()) || 
+      post.description.toLowerCase().includes(query.toLowerCase()) ||
+      post.category.toLowerCase().includes(query.toLowerCase())
+    )
+  : PostFromDb;
   return (
     <>
       <section className='yellow_container'>
@@ -45,7 +52,7 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
       </div>
 
       <section className='p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6'>
-        {PostFromDb?.map((post, index) => (
+        {filteredPosts?.map((post, index) => (
           <div key={index} className='flex justify-center mb-5 '>
             <StartupCard post={post} />
           </div>

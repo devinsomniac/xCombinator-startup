@@ -7,9 +7,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/ui/button'
 import { db } from '@/Database/db'
 import { startups } from '@/Database/schema'
-
+import { useSession } from 'next-auth/react'
 
 const page = () => {
+  const {data:session} = useSession()
+  console.log(session)
   const router = useRouter()
   const [pending, setPending] = useState(false)
   const [formData,setFormData] = useState({
@@ -36,7 +38,7 @@ const page = () => {
     try{
       const newStartup = await db.insert(startups).values({
         ...formData,
-        userId:"a0180b5d-ffeb-4003-bb3e-f4f340304fb2"
+        userId:session?.user?.id as string
       })
       router.push('/')
     }catch(err){
