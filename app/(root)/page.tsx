@@ -48,7 +48,7 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
         </div>
       </section>
       <div className='p-5 font-bold text-3xl'>
-        {query ? <p>Search Results for "{query}"</p> : <p>All Recommendations</p>}
+        {query ? <p>Search Results for {query}</p> : <p>All Recommendations</p>}
       </div>
 
       <section className='p-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6'>

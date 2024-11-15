@@ -49,7 +49,7 @@ const page = () => {
     <div>
       <section className='yellow_container'>
         <h2 className='heading'>Share Your Big Idea with Other Entrepreneurs</h2>
-        <p className='sub-heading'>Have an innovative concept? We're here to help bring it to life. Submit your idea and join us in building the next big thing.</p>
+        <p className='sub-heading'>Have an innovative concept? We are here to help bring it to life. Submit your idea and join us in building the next big thing.</p>
       </section>
       <section className='create_section'>
         <form >

@@ -1,5 +1,4 @@
 import React from 'react'
-import posts from '@/posts'
 import Image from 'next/image'
 import { db } from '@/Database/db'
 import { startups, users } from '@/Database/schema'
@@ -12,8 +11,6 @@ const page = async ({ params }: { params: { id: string } }) => {
   const avatarImage = postDetails[0].user?.image || "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
   const postImage = postDetails[0].startup?.imageLink || "https://img.freepik.com/free-vector/startup-abstract-concept_335657-3029.jpg?ga=GA1.1.1793491022.1731591556&semt=ais_hybrid"
   console.log(postDetails)
-  if (postDetails.length > 0) {
-    const post = postDetails[0];
     return (
       <div>
         <section className='yellow_container'>
@@ -39,9 +36,6 @@ const page = async ({ params }: { params: { id: string } }) => {
         </section>
       </div>
     )
-  } else {
-    return <div>Post not found!</div>;
-  }
 }
 
 export default page
