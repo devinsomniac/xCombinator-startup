@@ -26,7 +26,7 @@ const Page = async ({params} : {params : Promise<{id : string}>}) => {
   return (
     <div>
       <section className="yellow_container">
-        <p className="tag">15/10/2022</p>
+        <p className="tag">{postDetails[0]?.startup?.createdAt}</p>
         <h2 className="heading">{postDetails[0]?.startup?.title}</h2>
         <p className="sub-heading">{postDetails[0]?.startup?.description}</p>
       </section>
