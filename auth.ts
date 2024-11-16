@@ -7,27 +7,29 @@ import { eq } from "drizzle-orm"; // Import eq for filtering
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon} from '@neondatabase/serverless';
 import * as schema from './Database/schema'
+import GoogleProvider from 'next-auth/providers/google'
 
 const db = drizzle(neon(process.env.DATABASE_URL!),{schema});
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google],
+  providers: [GoogleProvider({
+    clientId: process.env.AUTH_GOOGLE_ID,
+    clientSecret: process.env.AUTH_GOOGLE_SECRET,
+  })],
   adapter: DrizzleAdapter(db, {
     usersTable: users,
     accountsTable: accounts,
   }),
   callbacks: {
     async session({ session, user }) {
-      // Check if the user exists in the database
       const existingUser = await db.select().from(users).where(eq(users.email, user.email));
 
       if (!existingUser.length) {
-        // If user doesn't exist, insert them
         await db.insert(users).values([{
-          id: crypto.randomUUID(), // Ensure you pass the generated UUID for the 'id'
-          name: user.name || '', // Handle case where user.name might be undefined
+          id: crypto.randomUUID(), 
+          name: user.name || '', 
           email: user.email,
-          emailVerified: null, // Can be null for now if the user hasn't verified their email
-          image: user.image || '', // Handle case where user.image might be undefined
+          emailVerified: null, 
+          image: user.image || '', 
         }]);
       }
 
