@@ -14,6 +14,7 @@ interface Post {
     imageLink: string;
     userName: string;
     userImage: string;
+    createdAt : string
 }
 
 const page = async () => {
@@ -41,6 +42,7 @@ const page = async () => {
             imageLink: post.imageLink || '',
             userName: session?.user?.name || '',
             userImage: session?.user?.image || avatarImage,
+            createdAt : post?.createdAt
         }));
     } else {
         console.error('User ID is undefined.');
