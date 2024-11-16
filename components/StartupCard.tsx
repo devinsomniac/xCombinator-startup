@@ -11,13 +11,14 @@ interface Post  {
     imageLink: string ; 
     userName: string ; 
     userImage: string;
+    createdAt : string
 }
 
 const StartupCard = ({post} : {post : Post}) => {
   return (
     <div className='startup-card cursor-pointer'>
         <div className='flex justify-between mb-3'>
-            <p>11/11/2022</p>
+            <p>{post.createdAt}</p>
             <div className='flex items-center gap-2'>
                 <Eye/>
                 <p>45</p>

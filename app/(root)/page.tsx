@@ -14,6 +14,7 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
     imageLink: string ; 
     userName: string ; 
     userImage: string;
+    createdAt : string
 }
   const PostFromDb = await db
   .select({
@@ -22,6 +23,7 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
     description: startups.description,
     category: startups.category,
     imageLink: startups.imageLink,
+    createdAt :startups.createdAt,
     userName: users.name,
     userImage: users.image,
   })
