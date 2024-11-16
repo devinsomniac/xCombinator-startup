@@ -3,18 +3,15 @@ import Image from "next/image";
 import { db } from "@/Database/db";
 import { startups, users } from "@/Database/schema";
 import { eq } from "drizzle-orm";
+// import { useRouter } from "next/router";
 
-
-
-const Page = async ({ searchParams }: { searchParams: Promise<{ id?: string }> }) => {
-  const id = (await searchParams).id as string
-  console.log(id);
-
-  const numericId = parseInt(id, 10);
+const Page = async ({params} : {params : Promise<{id : string}>}) => {
+  const id = (await params).id
+  const numericId = parseInt(id)
   const postDetails = await db
     .select()
     .from(startups)
-    .where(eq(startups.id, numericId))
+    .where(eq(startups.id, numericId))  
     .innerJoin(users, eq(startups.userId, users.id));
 
   const avatarImage =
