@@ -22,7 +22,7 @@ const Navbar = async () => {
                         <>
 
                             <Link href={"/startup/create"}>
-                            <IoIosCreate className='text-3xl border border-white rounded-full bg-green-700' />
+                            <IoIosCreate className='text-3xl border border-white rounded-full bg-green-700 p-3' />
                             </Link>
                             <Link href={"/profile"}>
                             {/* {session?.user?.name} */}
