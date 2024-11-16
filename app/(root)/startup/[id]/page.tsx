@@ -35,8 +35,8 @@ const Page = async ({params} : {params : Promise<{id : string}>}) => {
           <Image
             src={postImage}
             alt="pitch image"
-            height={450}
-            width={450}
+            height={650}
+            width={650}
             className="rounded-xl"
           />
         </div>
