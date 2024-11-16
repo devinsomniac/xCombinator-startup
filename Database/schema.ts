@@ -6,7 +6,9 @@ import {
   text,
   primaryKey,
   integer,
+  date,
 } from "drizzle-orm/pg-core"
+import { sql } from "drizzle-orm"
 import type { AdapterAccountType } from "next-auth/adapters" 
 
 export const users = pgTable("user", {
@@ -59,5 +61,6 @@ export const startups = pgTable('startup',{
   category : text('category').notNull(),
   imageLink:text('imageLink'),
   pitch:text('pitch').notNull(),
-  userId : text('userId').notNull().references(() => users.id)
+  userId : text('userId').notNull().references(() => users.id),
+  createdAt: text('createdAt').notNull()
 })

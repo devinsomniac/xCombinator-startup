@@ -21,7 +21,13 @@ const Page = () => {
     imageLink: '',
     pitch: ''
   })
-
+  const formatDate = (date: Date): string => {
+    const day = String(date.getDate()).padStart(2, '0'); // Ensures two digits for day
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based, so add 1
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+  const currentDate = formatDate(new Date())  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -33,11 +39,16 @@ const Page = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     console.log(formData)
+    if (!formData.title || !formData.description || !formData.category || !formData.pitch) {
+      alert("Please fill out all required fields.")
+      return
+    }
     setPending(true)
     try {
       await db.insert(startups).values({
         ...formData,
-        userId: session?.user?.id as string
+        userId: session?.user?.id as string,
+        createdAt : currentDate
       })
       router.push('/')
     } catch (err) {
@@ -54,7 +65,7 @@ const Page = () => {
         <p className='sub-heading'>Have an innovative concept? We are here to help bring it to life. Submit your idea and join us in building the next big thing.</p>
       </section>
       <section className='create_section'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='grid grid-cols-1 md:grid-cols-2'>
             <label className='create_section_label'>Title</label>
             <Input
@@ -97,7 +108,7 @@ const Page = () => {
               type='submit'
               disabled={pending}
               className='bg-[#f4d301] mt-4 h-10 rounded-full border-[3px] border-black'
-              onClick={handleSubmit}
+              // onClick={handleSubmit}
             >
               {pending ? "Submitting..." : "Submit"}
             </Button>
