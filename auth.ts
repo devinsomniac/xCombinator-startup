@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
-// import { db } from "./Database";
+// import Google from "next-auth/providers/google";
+// // import { db } from "./Database";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { users, accounts } from "./Database/schema"; // Import the schema
 import { eq } from "drizzle-orm"; // Import eq for filtering
