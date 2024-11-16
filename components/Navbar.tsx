@@ -47,7 +47,7 @@ const Navbar = async () => {
                             }}
                         >
                             <Button type="submit" className='session-btn hover:bg-blue-900 hover:text-white rounded-3xl'>
-                                <img width="50" height="50" src="https://img.icons8.com/bubbles/50/google-logo.png" alt="google-logo" />
+                                <img width="40" height="40" src="https://img.icons8.com/bubbles/50/google-logo.png" alt="google-logo" />
                                 Log In
                             </Button>
                         </form>
