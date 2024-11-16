@@ -31,12 +31,12 @@ const StartupCard = ({post} : {post : Post}) => {
         <div>
             <p className='line-clamp-2'>{post.description}</p>
         </div>
-        <div className='flex justify-center mt-2'>
+        <div className='flex justify-center mt-2 h-[200px] w-full overflow-hidden'>
             <Image src={post.imageLink} alt='image' width={450} height={150} className='rounded-3xl w-full'/>
         </div>
         <div className='flex justify-between items-center mt-3'>
-            <p className='p-2 text-xl  bg-black text-white rounded-3xl'>{post.category}</p>
-            <Button className='p-2 text-xl  bg-black text-white rounded-3xl'>
+            <p className='p-2   bg-black text-white rounded-3xl'>{post.category}</p>
+            <Button className='p-2  bg-black text-white rounded-3xl'>
                 <Link href={`/startup/${post.startupId}`}>
                 Details
                 </Link>
