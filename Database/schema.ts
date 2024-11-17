@@ -62,5 +62,6 @@ export const startups = pgTable('startup',{
   imageLink:text('imageLink'),
   pitch:text('pitch').notNull(),
   userId : text('userId').notNull().references(() => users.id),
-  createdAt: text('createdAt').notNull()
+  createdAt: text('createdAt').notNull(),
+  views : integer('views')
 })

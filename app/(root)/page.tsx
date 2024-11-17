@@ -3,7 +3,9 @@ import SearchForm from '@/components/SearchForm';
 import StartupCard from '@/components/StartupCard';
 import { db } from '@/Database/db';
 import { startups, users } from '@/Database/schema';
-import { eq } from 'drizzle-orm';
+import { asc, eq } from 'drizzle-orm';
+
+export const revalidate = 60
 
 const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
   interface Post  {
@@ -14,7 +16,8 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
     imageLink: string ; 
     userName: string ; 
     userImage: string;
-    createdAt : string
+    createdAt : string;
+    views : number
 }
   const PostFromDb = await db
   .select({
@@ -24,11 +27,12 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string }
     category: startups.category,
     imageLink: startups.imageLink,
     createdAt :startups.createdAt,
+    views : startups.views,
     userName: users.name,
     userImage: users.image,
   })
   .from(startups)
-  .innerJoin(users, eq(startups.userId, users.id)) as Post[];
+  .innerJoin(users, eq(startups.userId, users.id)).orderBy(asc(startups.id)) as Post[];
 
 
   const query = (await searchParams).query;

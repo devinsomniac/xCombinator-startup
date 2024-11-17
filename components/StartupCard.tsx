@@ -11,7 +11,8 @@ interface Post  {
     imageLink: string ; 
     userName: string ; 
     userImage: string;
-    createdAt : string
+    createdAt : string,
+    views : number
 }
 
 const StartupCard = ({post} : {post : Post}) => {
@@ -21,7 +22,7 @@ const StartupCard = ({post} : {post : Post}) => {
             <p>{post.createdAt}</p>
             <div className='flex items-center gap-2'>
                 <Eye/>
-                <p>45</p>
+                <p>{post.views}</p>
             </div>
         </div>
         <div className='flex justify-between items-center'>

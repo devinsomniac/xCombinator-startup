@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { db } from "@/Database/db";
 import { startups, users } from "@/Database/schema";
 import { eq } from "drizzle-orm";
 // import { useRouter } from "next/router";
+import Ping from "@/components/Ping";
+
 
 const Page = async ({params} : {params : Promise<{id : string}>}) => {
+  
   const id = (await params).id
   const numericId = parseInt(id)
   const postDetails = await db
@@ -57,6 +60,16 @@ const Page = async ({params} : {params : Promise<{id : string}>}) => {
           <p>{postDetails[0]?.startup?.pitch}</p>
         </div>
       </section>
+      <div className="bg-yellow-400 flex justify-end items-center mt-5 fixed bottom-3 right-3 ml-3 rounded-full">
+      <div className='absolute -top-2 -right-2'>
+                <Ping />
+            </div>
+            <div className='font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-lg capitalize'>
+                <span className='font-black flex gap-2'>
+                    views : {postDetails[0]?.startup?.views}
+                </span>
+            </div>
+      </div>
     </div>
   );
 };
