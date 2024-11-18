@@ -101,19 +101,19 @@ Screenshots
 
 ### 1\. Home Page
 
-![Home Screen](.\xcombinator\screenshots\Home.png)
+![Home Screen](screenshots\Home.png)
 
 ### 2\. Post Idea Page
 
-![Form](.\xcombinator\screenshots\form.png)
+![Form](screenshots\form.png)
 
 ### 3\. User Profile
 
-![Profile](.\xcombinator\screenshots\profile.png)
+![Profile](screenshots\profile.png)
 
 ### 4\. Post List
 
-![Post Details](.\xcombinator\screenshots\Posts.png)
+![Post Details](screenshots\Posts.png)
 
 
 
