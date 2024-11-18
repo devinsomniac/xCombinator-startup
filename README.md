@@ -101,17 +101,22 @@ Screenshots
 
 ### 1\. Home Page
 
-_Showcase of startup ideas with categories and filters._
+![Home Screen](.\xcombinator\screenshots\Home.png)
 
 ### 2\. Post Idea Page
 
-_Form to upload a new startup idea._
+![Form](.\xcombinator\screenshots\form.png)
 
 ### 3\. User Profile
 
-_View your uploaded ideas._
+![Profile](.\xcombinator\screenshots\profile.png)
 
-_(Add images/screenshots here if available.)_
+### 4\. Post List
+
+![Post Details](.\xcombinator\screenshots\Posts.png)
+
+
+
 
 Future Enhancements
 -------------------
