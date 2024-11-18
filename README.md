@@ -101,19 +101,19 @@ Screenshots
 
 ### 1\. Home Page
 
-![Home Screen](screenshots\Home.png)
+![Home Screen](screenshots/Home.png)
 
 ### 2\. Post Idea Page
 
-![Form](screenshots\form.png)
+![Form](screenshots/form.png)
 
 ### 3\. User Profile
 
-![Profile](screenshots\profile.png)
+![Profile](screenshots/profile.png)
 
 ### 4\. Post List
 
-![Post Details](screenshots\Posts.png)
+![Post Details](screenshots/Posts.png)
 
 
 
