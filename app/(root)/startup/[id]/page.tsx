@@ -3,14 +3,15 @@ import Image from "next/image";
 import { db } from "@/Database/db";
 import { startups, users } from "@/Database/schema";
 import { eq } from "drizzle-orm";
-// import { useRouter } from "next/router";
 import Ping from "@/components/Ping";
+import { UpdateViews } from "@/app/api/Update_view";
 
 
 const Page = async ({params} : {params : Promise<{id : string}>}) => {
   
   const id = (await params).id
-  const numericId = parseInt(id)
+  const numericId = parseInt(id,10)
+  await UpdateViews(numericId)
   const postDetails = await db
     .select()
     .from(startups)
