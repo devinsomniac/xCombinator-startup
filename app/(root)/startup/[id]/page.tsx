@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { db } from "@/Database/db";
 import { startups, users } from "@/Database/schema";
